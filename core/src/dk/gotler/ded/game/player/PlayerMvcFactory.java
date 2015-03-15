@@ -1,7 +1,6 @@
 package dk.gotler.ded.game.player;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import dk.gotler.ded.game.IDrawable;
+import dk.gotler.ded.game.Drawable;
 import dk.gotler.ded.game.util.Command;
 /**
  * Created by Martin on 06-11-2014!
@@ -13,12 +12,12 @@ public class PlayerMvcFactory {
 
     public PlayerMvcFactory(){
         model = new PlayerModel();
-        controller = new PlayerController(model);
         view = new PlayerView(model);
+        controller = new PlayerController(model, view);
 
     }
 
-    public IDrawable getPlayerView(){
+    public Drawable getPlayerView(){
         return view;
     }
 

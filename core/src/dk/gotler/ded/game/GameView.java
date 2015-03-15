@@ -13,12 +13,12 @@ import java.util.List;
 public class GameView {
     private GameModel model;
     private SpriteBatch spriteBatch;
-    private List<IDrawable> drawables;
+    private List<Drawable> drawables;
 
     public GameView(GameModel model) {
         this.model = model;
         spriteBatch = new SpriteBatch();
-        drawables = new ArrayList<IDrawable>();
+        drawables = new ArrayList<Drawable>();
     }
 
     public void drawGame(){
@@ -28,13 +28,13 @@ public class GameView {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         spriteBatch.begin();
-        for (IDrawable sprite : drawables) {
+        for (Drawable sprite : drawables) {
             sprite.draw(spriteBatch);
         }
         spriteBatch.end();
     }
 
-    public void addDrawable(IDrawable drawable) {
+    public void addDrawable(Drawable drawable) {
         drawables.add(drawable);
     }
 }
